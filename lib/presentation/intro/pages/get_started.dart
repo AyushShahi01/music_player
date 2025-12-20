@@ -21,6 +21,7 @@ class GetStarted extends StatelessWidget {
               ),
             ),
           ),
+          // ignore: deprecated_member_use
           Container(color: Colors.black.withOpacity(0.15)),
           Container(
             padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),

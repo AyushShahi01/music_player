@@ -1,11 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/assets_vectors.dart';
+import 'package:spotify/presentation/auth/pages/sighup_or_signin.dart';
 import 'package:spotify/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseMode extends StatelessWidget {
@@ -24,6 +23,7 @@ class ChooseMode extends StatelessWidget {
               ),
             ),
           ),
+          // ignore: deprecated_member_use
           Container(color: Colors.black.withOpacity(0.15)),
           Padding(
             padding: EdgeInsetsGeometry.symmetric(vertical: 40, horizontal: 40),
@@ -60,6 +60,7 @@ class ChooseMode extends StatelessWidget {
                               width: 80,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
+                                // ignore: deprecated_member_use
                                 color: Color(0xff30393C).withOpacity(0.5),
                               ),
                               child: SvgPicture.asset(
@@ -91,6 +92,7 @@ class ChooseMode extends StatelessWidget {
                               width: 80,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
+                                // ignore: deprecated_member_use
                                 color: Color(0xff30393C).withOpacity(0.5),
                               ),
                               child: SvgPicture.asset(
@@ -110,7 +112,15 @@ class ChooseMode extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 40),
-                BasicAppButton(onPressed: () {}, title: 'Choose'),
+                BasicAppButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SighupOrSignin()),
+                    );
+                  },
+                  title: 'Choose',
+                ),
               ],
             ),
           ),
